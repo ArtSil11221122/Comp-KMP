@@ -2,7 +2,6 @@ function KMP(texto: string, patron: string): number[] {
   let inicial = new Date().getTime();
   const lps = calcularLPS(patron);
   const apariciones: number[] = [];
-
   let i = 0;
   let j = 0;
   while (i < texto.length) {
@@ -10,7 +9,6 @@ function KMP(texto: string, patron: string): number[] {
       i++;
       j++;
     }
-
     if (j === patron.length) {
       apariciones.push(i - j);
       j = lps[j - 1];
@@ -26,7 +24,6 @@ function KMP(texto: string, patron: string): number[] {
   let tiempotranscurrido = final - inicial;
   return apariciones;
 }
-
 function calcularLPS(patron: string): number[] {
   const lps: number[] = [];
   let len = 0;
@@ -47,6 +44,5 @@ function calcularLPS(patron: string): number[] {
       }
     }
   }
-
   return lps;
 }
